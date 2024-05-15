@@ -10,3 +10,9 @@
 .nav-space {
     padding: 0 .5%;
 }
+
+@media (max-width: 992px) {
+    .nav-space {
+        display: none;
+    }
+}
