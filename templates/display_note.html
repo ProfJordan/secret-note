@@ -1,11 +1,15 @@
 {% extends "layout.html" %}
 
-{% block title %}
-    Secret Note
-{% endblock %}
+{% block title %} Secret Note {% endblock %}
 
-{% block main %}
-<h1>Your Secret Note</h1>
-<h2>This message will self-destruct after you close this window.</h2>
-<textarea readonly style="width: 400px; height: 200px;">{{ message }}</textarea>
+{% block body %}
+<div class="container mt-5">
+  <h2>Your Secret Note</h2>
+  <div class="alert alert-warning">
+    <strong>Message:</strong> <p>{{ message }}</p></a>
+  </div>
+  <p>
+    This note will self-destruct after it is read.
+  </p>
+</div>
 {% endblock %}
