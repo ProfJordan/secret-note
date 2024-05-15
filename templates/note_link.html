@@ -1,15 +1,22 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} <!-- Inherits from the base layout template -->
 
-{% block title %} Secret Note {% endblock %}
+{% block title %} Secret Note {% endblock %} <!-- Sets the page title -->
 
 {% block body %}
+<!-- Main content block starts here -->
 <div class="container mt-5">
-  <h2>Your Secret Note Link</h2>
-  <div class="alert alert-info">
-    <strong>Note URL:</strong> <a href="{{ link }}">{{ link }}</a>
-  </div>
-  <div class="alert alert-danger">
-    <p class="text-light-emphasis"> This note will self-destruct after it is read. Make sure to copy the link and send it to the intended recipient. </p>
-  </div>
+    <h2>Your Secret Note Link</h2> <!-- Heading for the page -->
+    
+    <div class="alert alert-info">
+        <!-- Display the link to the secret note using an alert box -->
+        <strong>Note URL:</strong> <a href="{{ link }}">{{ link }}</a>
+    </div>
+    
+    <div class="alert alert-danger">
+        <!-- Warning message about the self-destruct nature of the note -->
+        <p class="text-light-emphasis"> 
+            This note will self-destruct after it is read. Make sure to copy the link and send it to the intended recipient.
+        </p>
+    </div>
 </div>
 {% endblock %}

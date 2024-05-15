@@ -1,43 +1,33 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} <!-- Inherits the base layout from layout.html, reusing common structures like header and footer -->
 
-{% block title %} Create a New Secret Note {% endblock %}
+{% block title %} Create a New Secret Note {% endblock %} <!-- Sets the page title to indicate the action of creating a new note -->
 
 {% block body %}
+<!-- Content block for the page's main content -->
 <div class="container mt-5">
-  <h2>Create a New Secret Note</h2>
-  <form method="POST">
-    <div class="form-group">
-      <label for="message">Message:</label>
-      <textarea
-        class="form-control"
-        id="message"
-        name="message"
-        rows="3"
-        required
-      ></textarea>
-    </div>
-    <!-- <div class="form-group mb-5">
-      <label for="password">Password (optional):</label>
-      <input
-        type="text"
-        class="form-control"
-        id="password"
-        name="password"
-        placeholder="Enter a custom password to encrypt the note"
-      />  
-    </div> -->
-      <div class="form-group mt-2 mb-2">
-        <label for="salt">Custom Salt (optional):</label>
-        <input
-          type="text"
-          class="form-control"
-          id="salt"
-          name="salt"
-          placeholder="Enter a custom salt to encrypt the note"
-        />
-      </div>
+    <h2>Create a New Secret Note</h2> <!-- Page heading indicating the function of the form -->
+    
+    <form method="POST"> <!-- Form for submitting a new secret note, POST method ensures data is sent in the request body -->
+        <div class="form-group">
+            <!-- Label for the message input area -->
+            <label for="message">Message:</label>
+            <!-- Textarea for entering the message, with styling to make it visually consistent with Bootstrap's form styling -->
+            <!-- Unique ID and name are used for form data processing on the server side -->
+            <!-- The number of visible text lines is set to 3, and filling out this field is mandatory -->
+            <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+        </div>
 
-    <button type="submit" class="btn btn-primary mt-2">Submit</button>
-  </form>
+        <div class="form-group mt-2 mb-2">
+            <!-- Label for the optional custom salt input -->
+            <label for="salt">Custom Salt (optional):</label>
+            <!-- Text input for entering a custom salt, with Bootstrap class for styling -->
+            <!-- Unique ID and name attribute for form data processing -->
+            <!-- Placeholder text provides instructions on what to enter in the field -->
+            <input type="text" class="form-control" id="salt" name="salt" placeholder="Enter a custom salt to encrypt the note" />
+        </div>
+
+        <!-- Button to submit the form -->
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
 </div>
 {% endblock %}

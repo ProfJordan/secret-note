@@ -1,18 +1,56 @@
+body {
+    /* Ensures the body takes at least the full height of the viewport to correctly position the footer at the bottom */
+    min-height: 100vh;
+    /* Adds space at the top to prevent overlap with a fixed navbar */
+    padding-top: 100px;
+    /* Adds space at the bottom equal to the footer's height to prevent content from being hidden by the footer */
+    padding-bottom: 50px;
+    /* Establishes a flex container to manage the layout of child elements vertically */
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    /* Explicitly sets the height of the navbar for consistent styling */
+    height: 100px;
+}
+
 .logo {
+    /* Adds left margin to the logo for visual spacing from the container edge */
     margin-left: 10%;
 }
 
 .logo-text {
+    /* Sets text color to white for visibility against darker backgrounds */
     color: white;
+    /* Adds right padding to maintain spacing from subsequent elements or container edge */
     padding-right: 10%;
 }
 
 .nav-space {
+    /* Adds horizontal padding to create space between elements in the nav */
     padding: 0 .5%;
 }
 
+footer {
+    /* Sets a fixed height for the footer to maintain visual consistency */
+    height: 50px;
+}
+
 @media (max-width: 992px) {
-    .nav-space {
+    .nav-space, #navbarNav {
+        /* Hides navbar space and navbar itself on screens smaller than 992px to optimize space */
         display: none;
+    }
+}
+
+@media (max-width: 537px) {
+    body {
+        /* Adds space at the bottom equal to the footer's height to prevent content from being hidden by the footer */
+        padding-bottom: 100px;
+    }
+    footer {
+        /* Increases footer height on very small screens to accommodate more content or larger text */
+        height: 100px;
     }
 }

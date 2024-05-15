@@ -1,12 +1,15 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} <!-- Extends the base layout defined in layout.html, which includes common UI components like headers and footers -->
 
-{% block title %} Secret Note: Error {% endblock %}
+{% block title %} Secret Note: Error {% endblock %} <!-- Sets the title of the webpage to indicate an error page -->
 
 {% block body %}
+<!-- Main content container for displaying error messages -->
 <div class="container mt-5">
-  <h2>Error</h2>
-  <div class="alert alert-danger">
-    <strong class="text-secondary">Error:</strong> <p>{{ error }}</p>
-  </div>
+    <h2>Error</h2> <!-- Heading to clearly indicate that this is an error page -->
+
+    <!-- Alert box styled with Bootstrap to display the error message -->
+    <div class="alert alert-danger">
+        <strong class="text-secondary">Error:</strong> <p>{{ error }}</p> <!-- Dynamically displays the error message passed from the server -->
+    </div>
 </div>
 {% endblock %}

@@ -1,15 +1,21 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} <!-- Extends the base layout defined in layout.html -->
 
-{% block title %} Secret Note {% endblock %}
+{% block title %} Secret Note {% endblock %} <!-- Sets the title of the webpage -->
 
 {% block body %}
+<!-- Main content container for displaying the secret note -->
 <div class="container mt-5">
-  <h2>Your Secret Note</h2>
-  <div class="alert alert-warning">
-    <strong>Message:</strong> <p>{{ message }}</p>
-  </div>
-  <div class="alert alert-danger">
-    <p class="text-light-emphasis"> This note will self-destruct after it is read. </p>
-  </div>
+    <h2>Your Secret Note</h2> <!-- Heading indicating that this page displays the secret note -->
+
+    <!-- Alert box displaying the secret message -->
+    <div class="alert alert-warning">
+        <strong>Message:</strong> <p>{{ message }}</p> <!-- Displays the content of the secret note; `message` is populated by the server -->
+    </div>
+
+    <!-- Alert box indicating the self-destructive nature of the note -->
+    <div class="alert alert-danger">
+        <p class="text-light-emphasis"> This note will self-destruct after it is read. </p>
+        <!-- Reminder to the reader that the note will be deleted after this viewing -->
+    </div>
 </div>
 {% endblock %}
