@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Secret Note
+{% endblock %}
+
+{% block main %}
+<h1>Your Secret Note</h1>
+<h2>This message will self-destruct after you close this window.</h2>
+<textarea readonly style="width: 600px; height: 300px; color: black;">{{ message }}</textarea>
+{% endblock %}

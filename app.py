@@ -9,6 +9,7 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         message = request.form['message']
+        # password = request.form['password']
         salt = request.form['salt']
         if salt == '':
             key = functions.generate_key()
@@ -41,10 +42,11 @@ def note(note_id):
         message = functions.decrypt_message(row[0], row[1])
         delete_message(note_id)
         if message:
-            return message
+            return render_template('display_note.html', message=message)
         else:
-            return "Salt incorrect or message corrupted."
-    return "Note not found or already read & destroyed."
+            return render_template('display_error.html', error="Salt incorrect or message corrupted.")
+    return render_template('display_error.html', error="Note not found or already read & destroyed.")
+
 
 
 def delete_message(note_id):

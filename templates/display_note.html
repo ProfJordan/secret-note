@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %} Secret Note {% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+  <h2>Your Secret Note</h2>
+  <div class="alert alert-warning">
+    <strong>Message:</strong> <p>{{ message }}</p>
+  </div>
+  <div class="alert alert-danger">
+    <p class="text-light-emphasis"> This note will self-destruct after it is read. </p>
+  </div>
+</div>
+{% endblock %}
