@@ -8,7 +8,7 @@ cursor = conn.cursor()
 
 # Create table
 cursor.execute('''CREATE TABLE IF NOT EXISTS notes
-             (id TEXT PRIMARY KEY, message TEXT, password TEXT)''')
+             (id TEXT PRIMARY KEY, message TEXT, password TEXT, salt TEXT)''')
 
 # Commit the changes and close the connection
 conn.commit()

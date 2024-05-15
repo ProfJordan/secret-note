@@ -9,11 +9,11 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         message = request.form['message']
-        password = request.form['password']
-        if password == '':
+        salt = request.form['salt']
+        if salt == '':
             key = functions.generate_key()
         else:
-            key = functions.derive_key(password)
+            key = functions.derive_key(salt)
         
         encrypted_message = functions.encrypt_message(message, key)
         note_id = save_message(encrypted_message, key)
@@ -25,7 +25,7 @@ def save_message(encrypted_message, key):
     conn = sqlite3.connect('secret.db')
     cursor = conn.cursor()
     note_id = uuid.uuid4().hex  # Generate a unique ID for the note
-    cursor.execute('INSERT INTO notes (id, message, password) VALUES (?, ?, ?)',
+    cursor.execute('INSERT INTO notes (id, message, salt) VALUES (?, ?, ?)',
                    (note_id, encrypted_message, key))
     conn.commit()
     conn.close()
@@ -35,7 +35,7 @@ def save_message(encrypted_message, key):
 def note(note_id):
     conn = sqlite3.connect('secret.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT message, password FROM notes WHERE id = ?', (note_id,))
+    cursor.execute('SELECT message, salt FROM notes WHERE id = ?', (note_id,))
     row = cursor.fetchone()
     if row:
         message = functions.decrypt_message(row[0], row[1])
@@ -43,7 +43,7 @@ def note(note_id):
         if message:
             return message
         else:
-            return "Password incorrect or message corrupted."
+            return "Salt incorrect or message corrupted."
     return "Note not found or already read & destroyed."
 
 
