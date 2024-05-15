@@ -9,6 +9,7 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         message = request.form['message']
+        # password = request.form['password']
         salt = request.form['salt']
         if salt == '':
             key = functions.generate_key()
