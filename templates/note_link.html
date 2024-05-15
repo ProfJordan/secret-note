@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %} Secret Note {% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+  <h2>Your Secret Note Link</h2>
+  <div class="alert alert-info">
+    <strong>Note URL:</strong> <a href="{{ link }}">{{ link }}</a>
+  </div>
+  <p>
+    This note will self-destruct after it is read. Make sure to copy the link
+    and send it to the intended recipient.
+  </p>
+</div>
+{% endblock %}
